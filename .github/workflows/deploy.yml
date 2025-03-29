@@ -16,19 +16,16 @@ jobs:
         uses: Cyb3r-Jak3/html5-validator-action@v1
         with:
           file: index.html
+          
+deploy:
+  needs: validate-html
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout del código
+      uses: actions/checkout@v3
 
-  deploy:
-    needs: validate-html
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout del código
-        uses: actions/checkout@v3
+    - name: Configurar GitHub Pages
+      uses: actions/configure-pages@v3
 
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v3
-
-      - name: Publicar en GitHub Pages
-        uses: actions/upload-pages-artifact@v2
-
-      - name: Desplegar en GitHub Pages
-        uses: actions/deploy-pages@v2
+    - name: Publicar en GitHub Pages
+      uses: actions/upload-pages-artifact@v2
