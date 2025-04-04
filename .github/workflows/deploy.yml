@@ -1,19 +1,34 @@
-name: Deploy Website
+name: HTML Validation
 
-on:
+on: 
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
 jobs:
-  deploy:
+  validate-html:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout del código
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
 
-      - name: Publicar en GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+      - name: Install HTML5 Validator
+        run: pip install html5validator
+
+      - name: Run HTML5 Validator
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: .
+          format: json
+          log_level: WARNING
+          css: true
+          blacklist: invalid
