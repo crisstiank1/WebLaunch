@@ -1,5 +1,4 @@
-/** @type {import('jest').Config} */
-export default {
-    testEnvironment: 'node'
+module.exports = {
+    testEnvironment: 'node',
+    transform: {},
   };
-  
