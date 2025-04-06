@@ -1,6 +1,7 @@
 {
   "name": "weblaunch",
   "version": "1.0.0",
+  "description": "",
   "main": "script.js",
   "scripts": {
     "test": "jest"
@@ -10,13 +11,12 @@
     "url": "git+https://github.com/crisstiank1/WebLaunch.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cristian Rueda",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/crisstiank1/WebLaunch/issues"
   },
   "homepage": "https://github.com/crisstiank1/WebLaunch#readme",
-  "description": "",
   "devDependencies": {
     "@eslint/js": "^9.23.0",
     "eslint": "^9.23.0",
